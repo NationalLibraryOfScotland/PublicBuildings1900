@@ -1,0 +1,149 @@
+/* CSS full-screen layout - site specific elements */
+
+html { overflow: hidden; }
+body { overflow: hidden; padding: 0; margin: 0; width: 100%; height: 100%; font-family: Trebuchet MS, Trebuchet, Arial, sans-serif; background: #DED8C2;;}
+h1 { padding:7px 10px; margin:0; font-size: 1.2em; line-height:1.2em; text-align: center;}
+h2 { padding:7px 10px; margin:0; font-size: 1.0em; }
+h3 {	font-size: 0.9em; border-bottom: 1px solid #ccc;}
+h4 {	font-size: 0.7em;}
+label { font-size: 1.0em;}
+
+#header { position: absolute; top: 10px; left: 10px; right: 10px; height: 120px; overflow: hidden;  background: #fff;
+	background-image: url('Header.png');background-position:right top; box-shadow: 0 1px 3px #ccc; border: 1px solid #ccc; }
+
+#home { position: absolute; top: 10px; left: 10px; z-index: 5;}
+
+#headertitle { position: absolute; top: 19px; left:20px;}
+
+.nav {overflow: hidden; background-color: #333;top: 80px; position: absolute;left: 0; right:0;}
+
+.nav a {display:block;float: left; font-size: 16px; color: white; text-align: center; padding: 11px 14px; text-decoration: none;}
+
+.nav a.active {background-color:#144C7D; color: white;}
+
+.nav a:hover {background-color: grey;}
+
+#logo {position:absolute;top:15px; right:18px;}
+
+img {margin-right:15px;}
+
+#main { position: absolute; top: 100px; left: 10px; right: 10px; bottom: 10px; overflow: auto; border: 1px solid #592F57; border-radius: 5px; box-shadow: 0 0px 0px #CCC;
+padding: 10px 10px 10px 10px; background: #fff; z-index: 10001;}
+
+.floatright {float:right;margin-left: 22px;margin-bottom: 20px;background:#ffffff;}
+.closebtn {position: absolute; top: 5px; right: 15px; color: grey; font-size: 25px; cursor: pointer;}
+.closebtn:hover {color: darkgrey;}
+#map { position: absolute; top: 135px; left: 10px; right: 10px; bottom:5px; overflow: hidden; box-shadow: 0 0px 0px #CCC; background-color: #DED8C2;}
+#messageBox {position: fixed; overflow:auto; max-height:350px; top: 145px; right: 50px; margin-left: 20px; width:170px;padding: 13px; background:rgba(255,255,255,0.7);font-size: 13px;border-radius: 3px; }
+#layerSelect { position: absolute; top: 10px; left: 300px; z-index: 1;}
+#population_legend_england {position: absolute; bottom:50px; right:70px;width:125px;height:150px;padding: 2px 2px 5px 13px; background:white;border: 1px solid #592F57;}
+#population_legend_scotland {position: absolute; bottom:200px; right:70px;width:125px;height:150px;padding: 0px 2px 5px 13px; background:white;border: 1px solid #592F57;}
+#sidebar { position: absolute; top: 150px; left: 60px; width: 220px; font-size: 13px; border: 1px solid #592F57; border-radius: 8px; box-shadow: 0 0px 0px #CCC;
+padding: 10px 10px 10px 10px; background: #fff; z-index: 1;}
+#dataSelect {     width: 95%; float: left; }
+#searchSideBar { position: absolute; top: 145px; left: 10px; right: 10px; margin-bottom:5px; height: 20px;}
+#SelectLeft { position: absolute; float: left; left:1%;}
+#SelectRight { position: absolute; float: left; left:51%;}
+#reset {position: absolute; bottom: 11px; left: 183px;}
+.button {background:rgba(134,149,164,0.7);color: #144C7D; border-radius: 4px;border: none;text-align: center;font-size: 12px;padding: 2px;width: 100px;cursor: pointer;border: 2.5px solid rgba(255,255,255,0.8);}
+.button:hover {background:rgba(106,123,141,0.7);color: white;}
+#mapleft { position: absolute; left: 10px; right: 50.2%; top: 175px; bottom: 5px; border: 2px solid #ccc;background-color: #DED8C2;}
+#mapright { position: absolute; left: 50.2%; right: 10px; top: 175px; bottom: 5px; border: 2px solid #ccc;background-color: #DED8C2;}
+
+#scalebar {position: absolute; right: 20px; bottom: 75px; z-index: 10001; font-size: small;}
+
+#resultsSideBar {position: absolute;top: 110px;	border-radius: 5px;right: 55px;width: 150px;  font-size: 10pt; overflow: hidden; z-index: 2; background-color: white; overflow: auto;margin: 0px;padding: 10px;
+background:rgba(255,255,255,0.95);}
+
+.mslider {  width: 100%;  background: #FFFFFF;  position:absolute;  bottom: 20px;  opacity: 0.8;  z-index: 10000000;}
+
+#mapslider .slider-selection {  background: white;  padding-left: 20px;}
+
+#slider-range {width: 200px; margin:5px;}
+
+#measurementControlForm {position: absolute;right: 50px;top: 110px;z-index:100000;
+}
+
+#measurementControlOutput {display: none; position: absolute;right: 5px;	top: 158px; background-color: white;z-index:100000;font-size: 0.75em;
+	font-weight: bold;padding: 0 6px;border: 1px inset #ddd;text-align: right; opacity:0.6;	filter:alpha(opacity=60);}
+
+#measurementControlOutputReturnLink, #measurementControlOutputSpan {	display: block;}
+
+#measurementControlOutputSpan {	height: 1.7em;}
+
+#message { position: absolute; right: 200px; top: 110px; background-color: white;z-index:100000;font-size: 0.75em;
+		font-weight: bold;padding: 0 6px;border: 1px inset #ddd;text-align: right; opacity:0.7;	filter:alpha(opacity=60);}
+
+@media only screen and (min-width: 60em) {
+		#zoom_statement {
+		  position: absolute;
+			padding: 2px 5px 2px 5px;
+			left: 300px;
+			bottom: 14px;
+			z-index: 100;
+			background-color: #FFF;
+			border-radius: 2px;
+			font-size: 0.8em;
+			color: rgba(0,0,0,0.7);
+			opacity: 0.85;
+		}
+		#zoom_statement_R {
+		  position: absolute;
+			padding: 2px 5px 2px 5px;
+			right: 145px;
+			bottom: 14px;
+			z-index: 100;
+			background-color: #FFF;
+			border-radius: 2px;
+			font-size: 0.7em;
+			color: rgba(0,0,0,0.7);
+			opacity: 0.85;
+		}
+}
+
+@media only screen and (max-width: 60em) {
+  #zoom_statement { visibility: hidden; }
+	#zoom_statement_R { visibility: hidden; }
+	#logo { visibility: hidden; }
+}
+
+@media screen and (max-width: 700px) {
+	#sidebar{font-size: 11px; border: 1px solid #592F57; border-radius: 8px; box-shadow: 0 0px 0px #CCC;
+	padding: 8px 8px 8px 8px; background: #fff; z-index: 1;}
+	#messageBox {padding: 10px; font-size: 11px;right:30px; width:140px;}
+	.closebtn {font-size: 16px;}
+}
+/* OSMNames gazetteer search autocomplete css  */
+
+.ac-renderer{
+  position: absolute;
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: auto;
+  font-size:.9em;
+  z-index: 2;
+}
+.ac-row {
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #fff;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+.ac-row .suffix {
+  font-size:.8em;
+  color:#ccc;
+  padding:.1em 0 .1em 5px;
+}
+.ac-row .type {
+  font-size:.7em;
+  color:#aaa;
+  display:block;
+  width:100%;
+}
+.ac-highlighted {font-weight: bold;}
+.ac-active {background-color: #eee;}

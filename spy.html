@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+  <head>
+    <title>Map of Public Buildings in Great Britain 1900s - National Library of Scotland</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.16.0/ol.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.16.0/ol.css" type="text/css">
+    <link type="text/css" rel="stylesheet" href="maincss.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap-slider.css"/>
+    <script src="ol.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="ol.css" type="text/css">
+  </head>
+
+  <body>
+
+    <div id="header">
+			<div id="headertitle">
+			<h1>Map of Public Buildings in Great Britain 1900s</h1>
+			</div>
+      <div id="nav" class="nav">
+         <a href="index.html">Home</a>
+         <a href="about.html">About the Project</a>
+         <a href="usage.html">How to Use the Map</a>
+         <a href="sidebyside.html">Side-by-Side Viewer</a>
+         <a class="active" href="spy.html">Spy Viewer</a>
+      </div>
+      <div id="logo">
+        <a href="https://www.ucl.ac.uk/digital-humanities/"><img src="https://www.sygnaturediscovery.com/wp-content/uploads/2017/08/University_College_London_logo.svg.png" width=105></a>
+        <a href="https://www.nls.uk"><img src="https://maps.nls.uk/assets/graphics/nls_logo_notext.png" width=110></a>
+      </div>
+    </div>
+
+		<div id="sidebar">
+      <h3>Choose a type of public building:</h3>
+      <form><select id="dataSelect" onchange="changeData(this.selectedIndex)"></select></form>
+      <br><br><br>
+
+      <h3>Choose a background map:</h3>
+			<div id="baselayerSelect" ></select></div>
+      <br>
+
+      <h3>Change transparency of map overlay:</h3>
+        <p class="infomapslider">
+          <input id="opacityslider" data-slider-id="mapsslider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" />
+        </p>
+
+      <h3>Change size of spyglass:</h3>
+        <p class="infomapslider">
+          <input id="mapslider" data-slider-id="mapsslider" type="text" data-slider-min="2" data-slider-max="95" data-slider-step="1" />
+        </p>
+		</div>
+
+		<div id="map" class="map"></div>
+    <div id="reset"><button class="button" onclick="resetZoom();">Zoom to extent</button></div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap-slider.js"></script>
+    <script src="./Spy.js"></script>
+
+  </body>
+</html>

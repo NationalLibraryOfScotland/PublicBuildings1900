@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+  <head>
+    <title>Map of Public Buildings in Great Britain 1900s - National Library of Scotland</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.16.0/ol.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.16.0/ol.css" type="text/css">
+    <link type="text/css" rel="stylesheet" href="secondaryPage.css" media="screen"/>
+  </head>
+
+  <body>
+
+    <div id="header">
+			<div id="headertitle">
+			<h1>Map of Public Buildings in Great Britain 1900s</h1>
+			</div>
+      <div id="nav">
+         <a href="index.html">Home</a>
+         <a class="active" href="about.html">About the Project</a>
+         <a href="usage.html">How to Use the Map</a>
+         <a href="sidebyside.html">Side-by-Side Viewer</a>
+         <a href="spy.html">Spy Viewer</a>
+      </div>
+      <div id="logo">
+        <a href="https://www.ucl.ac.uk/digital-humanities/"><img src="https://www.sygnaturediscovery.com/wp-content/uploads/2017/08/University_College_London_logo.svg.png" width=105></a>
+        <a href="https://www.nls.uk"><img src="https://maps.nls.uk/assets/graphics/nls_logo_notext.png" width=110></a>
+      </div>
+		</div>
+
+    <div id="article">
+      <h2>ABOUT THE PROJECT</h2>
+      <p><i>Map of Public Buildings in Great Britain 1900s</i> is a digital humanities project
+        supported by the National Library of Scotland. The interactive map displays the locations of different
+        public buildings in Great Britain in the 1900s.</p>
+
+      <p>The website was designed and built by Cynthia So at UCL DH during
+        a three-week postgraduate placement with the Library.</p><br>
+
+      <h3>Project Overview</h3>
+      <p>The project was created to be an open-access digital resource to support the learning and exploration of the social
+        and cultural history in late nineteenth- and early twentieth-century Britain.</p>
+
+      <p>The definition of "public" spaces or buildings has long been a subject of debate in the field of urban studies,
+        cultural studies, social studies and political studies. By providing multiple filters and viewing options, the goal of this project is to identify and classify the country’s public buildings
+        with digital mapping technologies and promote greater understanding of the availability and variety of public spaces during this period.
+        More than 29,000 public buildings have been mapped and categorised into 14 types, offering rich scope for subsequent analysis.</p>
+
+      <p>All source code is available on <a href="https://github.com/NationalLibraryOfScotland ">GitHub</a>.</p><br>
+
+      <h3>Background</h3>
+      <p>Ordnance Survey is the national mapping agency for Great Britain. The project was built upon a series of georeferenced scans of the Ordanance Survery (OS) maps
+        published around the 1900s, seamed together as zoomable historic map layers.</p>
+
+      <p>Within this map series, the Ordnance Survey six-inch to the mile (1:10,560) County Series is the most detailed topographic mapping that covers all areas of Scotland,
+        England, and Wales from the 1840s to the 1950s, so it provides a good record of streets and public buildings during the period.
+        There are two editions of the six-inch maps. This project utilised the second edition OS maps as the basis for digital mapping,
+        published between 1888 and 1913. Thhese can also be
+        <a href="https://maps.nls.uk/geo/explore/#zoom=8&lat=53.76150&lon=-1.70739&layers=6&b=1">veiwed online</a>.</p><br>
+
+      <h3>Data</h3>
+      <p>The project combined the <a href="https://data.nls.uk/data/map-spatial-data/gb1900/">GB1900 gazetteer</a>
+        dataset on the Library's Data Foundry website and historical boundaries and census data downloaded
+        from <a href="https://www.visionofbritain.org.uk/data/dds_entity_page.jsp?ent=T_POP">A Vision of Britain through Time<a>.</p>
+
+      <p>The GB1900 gazetteer includes 2.5 million place names transcribed from the second edition Ordanance Survey six inch
+        maps and is the largest ever historical gazetteer. It should be noted that the GB1900 dataset does not provide a comprehensive listing of every public building in Britain.
+        In particular, the more detailed OS <a href="https://maps.nls.uk/geo/explore/#zoom=7&lat=53.28710&lon=-1.56970&layers=168&b=1">25 inch to the mile maps</a>
+        and town plans provide larger-scale coverage of towns,
+        and name more public buildings; however, the text has not been transcribed from these maps.
+        It would also be possible to parse Post Office Directory texts and geolocate public buildings,
+        but this has not been systematically attempted and it was beyond the scope of a brief project such as this.
+        In the absence of detailed records of all public buildings in the 1900s,
+        the dataset offers valuable insights into the various public buildings that were present at the time,
+        and it could be that future work with extracted text from more detailed maps and directories could build on this.</p>
+
+      <p>The project also incorporated boundaries and census data, which allows for the visualisation of population density
+        across registration districts (a type of administrative region used for registration and census purposes),
+        and helps draw attention to the correlation between population and the spatial distribution of public structures and facilities.
+        The population data of England and Wales and that of Scotland come from two different censuses
+        as the boundary data for Scotland was published separately from England and Wales.</p><br>
+
+      <h3>Mapping Methodology</h3>
+      <p>Public buildings were extracted from the GB1900 gazetteer based on what
+        Ordnance Survey considered to be “public buildings” from 1888: almshouse, assembly room,
+        asylum, athenaeum, auction mart, aquarium, bank, barrack, bath, bridewell, cathedral,
+        church, chapel, club, college, coastguard station, court of law, custom house, dispensary,
+        dock building, drill hall, exchange, fire station, gymnasium, hall, hospital, infirmary,
+        library, literary and scientific institute, local government board office, market house, monument,
+        municipal building / office, museum, palace, police station, post office, prison,
+        public office, railway station, reading room, school, skating rink, theatre, wash house,
+        water work, workhouse.</p>
+
+      <p>They are identified by common names such as "school" and "church".
+        The dataset was queried with QGIS software using an expression:</p>
+
+      <p>"final_text" ILIKE '%Museum%' OR "final_text" ILIKE '%Gallery%'</p>
+
+      <p>This query string would enable a case-insensitive search.
+        Although not all of the public buildings could be accurately identified by names, this method provides an
+        efficient way to filter a large dataset under the tight time constraints of this project.
+        The long list of specific public buildings was grouped together into more meaningful, broader categories;
+        for example, hospitals, infirmaries and dispensaries were grouped together under ‘Health services’.
+        The selected features were saved as GeoJSON files.</p>
+
+      <p>The boundary data was downloaded and opened as shapefiles.
+        The census data were then joined to the boundary data using the common id field in QGIS
+        and classified into five groups at equal intervals.
+        Districts were coloured according to the classification to produce choropleth map layers.
+        The layers were saved as GeoJSON files whilst the colour scheme of the choropleth maps were saved as
+        separate Styled Layer Descriptor (SLD) files.</p>
+
+      <p>Due to the large size of some layers, all GeoJSON files were uploaded to <a href="http://geoserver.org">GeoServer</a>,
+        which allows the data layers to be viewed as image tiles, thereby reducing web page loading time. Meanwhile,
+        the SLD files from QGIS were added as style layers on GeoServer to style the choropleth maps.</p>
+
+      <p>The interactive map was created using <a href="https://openlayers.org">OpenLayers</a>, an open-source JavaScript library for web maps.
+        Data layers of public buildings and census districts are retrieved from GeoServer based on the user's selection.
+        The background OS 1900s mapping was brought in as a Web Map Tile Service (WMTS) from the National Library of Scotland’s servers,
+        whilst other modern map layers were brought in as WMTS layers from ESRI and OpenStreetMap.
+        It is not surprising to see that the distributions of public buildings are broadly linked to urban development and
+        population density, but there are several interesting regional variations. Some public buildings were obviously more common than others across the country,
+        but the specific building distributions are all different. For this reason, it was felt useful to allow the ability
+        to compare different distributions <a href="https://geo.nls.uk/maps/buildings/sideBySide.html">side by side</a>.</p><br>
+
+      <h3>Acknowledgements</h3>
+      <p>Special thanks are due to Fredric Saunderson and Christopher Fleet (National Library of Scotland) for advice and technical support from the project’s
+        inception and through to its implementation.</p><br>
+
+      <h3>Copyright</h3>
+      <p>This project is copyright National Library of Scotland and is available under
+        the <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F&data=04%7C01%7C%7Ca5ce49725cd448f7d34f08d92a636b0c%7C1faf88fea9984c5b93c9210a11d9a5c2%7C0%7C0%7C637587428784908367%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=dzww%2Fmj7GnyIhM%2BitNu6AhXGK3YZHcoPKNeiFuAk2bM%3D&reserved=0">Creative Commons Attribution 4.0 (CC BY) licence</a>.
+        This licence does not apply to:
+        <ul>
+        <li>Ordnance Survey Maps, 1900s backdrop map layers. For permission information, visit: <a href="http://maps.nls.uk/projects/subscription-api/">http://maps.nls.uk/projects/subscription-api/</a></li>
+        <li>ESRI World Imagery backdrop map layers. For permission information, visit: <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer</a></li>
+        <li>ESRI World Topographic Map backdrop map layers. For permission information, visit: <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer</a></li>
+        <li>OpenStreetMap: backdrop map layers. For permission information, visit: <a href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</a></li>
+        <li>Population statistics for England and Wales and Scotland: This work is based on data provided through www.VisionofBritain.org.uk and uses statistical material which is copyright of the Great Britain Historical GIS Project,
+          Humphrey Southall and the University of Portsmouth. This data may not be re-use for commercial purposes.
+          For permission information, visit: <a href="www.VisionofBritain.org.uk">www.VisionofBritain.org.uk</a>.
+          This data includes Government statistical data protected by Crown copyright: Content from the Office for National Statistics:
+          Crown copyright. Adapted from data from the Office for National Statistics licensed under the Open Government Licence v.1.0;
+          Content from the General Register Office for Scotland: Crown copyright. Data supplied by General Register Office for Scotland.</li>
+        <li>Digital boundary data: This work is based on data provided through www.VisionofBritain.org.uk and uses historical material which is copyright of the Great Britain Historical GIS Project and the University of Portsmouth.
+          This data may not be re-use for commercial purposes. For permission information, visit: <a href="www.VisionofBritain.org.uk">www.VisionofBritain.org.uk</a></li>
+        <li><a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdata.nls.uk%2Fdata%2Fmap-spatial-data%2Fgb1900%2F&data=04%7C01%7C%7Ca5ce49725cd448f7d34f08d92a636b0c%7C1faf88fea9984c5b93c9210a11d9a5c2%7C0%7C0%7C637587428784938350%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=EKlgtdeBCogv9ZvkMy9j9Sn9ESTVi7xdgy8HsBHGP7w%3D&reserved=0">GB1900 gazetteer</a> dataset,
+          available under the <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcreativecommons.org%2Fshare-your-work%2Fpublic-domain%2Fcc0&data=04%7C01%7C%7Ca5ce49725cd448f7d34f08d92a636b0c%7C1faf88fea9984c5b93c9210a11d9a5c2%7C0%7C0%7C637587428784938350%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=bIHy85%2FbvXNXQDlOqiR5UqR%2FHI%2FBkbun2fa34v6bsac%3D&reserved=0">Creative Commons Public Domain Dedication (CC0)
+          </a></li>
+        </ul>
+      </p>
+    </div>
+
+
+  </body>
+</html>
